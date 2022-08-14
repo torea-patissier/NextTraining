@@ -9,3 +9,6 @@ export default function ProductDetail() {
     )
 };
 // https://essential-dev-skills.com/nextjs/developpons-avec-next/le-routing
+/**
+ * /product/id
+ */
