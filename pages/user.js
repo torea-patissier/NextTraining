@@ -1,3 +1,4 @@
+import User from "../components/user";
 /**
  * getStaticProps  = IMPORTANT
  * Appel de l'API et de la route /user utilisation de la méthode fetch de JS
@@ -16,8 +17,7 @@
         }
     }
 }
-
-export default function User({users}) {
+export default function UserList({users}) {
     return(
         <>
         <h1>User page</h1>
@@ -25,8 +25,7 @@ export default function User({users}) {
             users.map( (user) => { // equivalent foreach php
                 return(
                     <div key={user.id}>
-                        <p>Name : {user.name}</p>
-                        <p>Email : {user.email}</p>
+                        <User user= {user} />
                         <br/>
                     </div>
                 )
