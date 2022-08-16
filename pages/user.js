@@ -1,3 +1,4 @@
+// pages/user
 import User from "../components/user";
 /**
  * getStaticProps  = IMPORTANT
@@ -26,6 +27,7 @@ export default function UserList({users}) {
                 return(
                     <div key={user.id}>
                         <User user= {user} />
+                        {/* APPEL DU COMPOSANT USER */}
                         <br/>
                     </div>
                 )
