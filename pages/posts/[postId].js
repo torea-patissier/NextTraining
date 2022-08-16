@@ -29,18 +29,29 @@ export async function getStaticProps(context) {
 
 // Generates `/posts/1` and `/posts/2`
 export async function getStaticPaths() {
+
+  // Appel à l'API
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const data = await response.json();
+
+  /**
+   * ICI ON MAP LE RES DE L'API 
+   * On met les `` car l'API return un (numéric) mais dans l'URL il s'agit de passer un (string)
+   * 
+   */
+  const myPath = data.map(post =>{
+    return{
+      params:{
+        postId : `${post.id}` 
+      }
+    }
+  })
+
+  /**
+   * ICI ON DEFINI LES PATHS POUR getStaticPaths
+   */
   return {
-    paths:[
-        {
-            params: {postId: '1'}
-        },
-        {
-            params: {postId: '2'}
-        },
-        {
-            params: {postId: '3'}
-        },
-    ],
-    fallback: false, //Définition à  voir plus bas
+    paths : myPath, 
+    fallback: false, //Définition à  voir plus tard
   };
 }
