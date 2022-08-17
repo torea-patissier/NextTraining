@@ -7,7 +7,7 @@ export async function getStaticProps() { // Utilisation de l'API
     return{
 
         props : {
-            posts: data // on à enlevé le slice qu'il y'avait avant
+            posts: data
         }
         
     }
