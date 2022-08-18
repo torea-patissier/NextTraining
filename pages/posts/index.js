@@ -7,7 +7,7 @@ export async function getStaticProps() { // Utilisation de l'API
     return{
 
         props : {
-            posts: data
+            posts: data.slice(0,3)
         }
         
     }
