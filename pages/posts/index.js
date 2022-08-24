@@ -1,35 +1,34 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-export async function getStaticProps() { // Utilisation de l'API
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-    const data = await response.json();
+function PostList({ posts }) {
+  return (
+    <>
+      <h1>List of Posts</h1>
+      {posts.map(post => {
+        return (
+          <div key={post.id}>
+            <Link href={`posts/${post.id}`}>
+              <h2>
+                {post.id} {post.title}
+              </h2>
+            </Link>
+            <hr />
+          </div>
+        )
+      })}
+    </>
+  )
+}
 
-    return{
+export default PostList
 
-        props : {
-            posts: data.slice(0,3)
-        }
-        
+export async function getStaticProps() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const data = await response.json()
+
+  return {
+    props: {
+      posts: data.slice(0, 3)
     }
-};
-
-export default function PostList({posts}) { // Affichage de la data de l'API
-    return(
-        <>
-        <h1>Post List here:</h1>
-        {
-            posts.map( (post) =>{
-                return(
-                    <div key={post.id}>
-                    {/* Quand on utilise le composant LINK sans passer de balises <a></a> alors on utilise passHref */}
-                        <Link href={`/posts/${post.id}`} passHref> 
-                        <p>{post.title} {post.body}</p>
-                        </Link>
-                        <hr/>
-                    </div>
-                )
-            })
-        }
-        </>
-    )
-};
+  }
+}
