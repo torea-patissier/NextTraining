@@ -6,7 +6,7 @@ function ProductList({ products }) {
         return (
           <div key={product.id}>
             <h2>
-              {product.id} {product.title} {product.price}
+              {product.id} Title : {product.title} Price : {product.price}
             </h2>
             <hr />
           </div>
@@ -26,6 +26,7 @@ export async function getStaticProps() {
   return {
     props: {
       products: data
-    }
+    },
+    revalidate: 5
   }
 }

@@ -29,8 +29,9 @@ export async function getStaticProps(context) { // Requête de l'id
 
   return {
     props: {
-      product: data
-    }
+      product: data,
+    },
+    revalidate: 5
   }
 }
 
