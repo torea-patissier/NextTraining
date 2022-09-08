@@ -17,6 +17,9 @@ function ProductList({ products }) {
 }
 
 export default ProductList
+/**
+ * test
+ */
 
 export async function getStaticProps() {
   console.log('Generating / Regenerating ProductList')
