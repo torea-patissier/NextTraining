@@ -22,8 +22,7 @@ export default function UserList({users}) {
     return(
         <>
         <h1>User page</h1>
-        <h1>Test rebase2</h1>
-        <h1>User page</h1>
+        <h1>Test R3</h1>
         {
             users.map( (user) => { // equivalent foreach php
                 return(
