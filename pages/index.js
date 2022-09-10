@@ -6,8 +6,8 @@ export default function Home() {
     <h1>Home page for next JS</h1>
     <h1>Home page for next JS</h1>
     <h1>Home page for next JS</h1>
-    <h1>Test rebase</h1>
-    <h1>Test rebase</h1>
+    <h1>Test rebase2</h1>
+    <h1>Test rebase2</h1>
 
     <Link href="/posts">
     <a>Go to Posts</a>
